@@ -1,0 +1,37 @@
+# The load scripts are the individual commands used to load the flat-file data from SR28
+# from a psql command prompt, as database owner and in the usda database, first issue the encoding command
+
+usda=# SET client_encoding = 'LATIN1';
+<repsonse>SET
+
+# The LATIN1 encoding allows correct processing of the 'mu' character. Basically in the metric system there
+# are too many 'm's so scientists use the Greek letter 'mu', or occasionally the roman 'u' to indicate amounts
+# which are millionths of a gram. Millegrams are only thousandths, so there is a 1000* factor between 'm' and 'mu'
+# Getting this wrong will render the database nearly computationally useless.
+
+# Note below that paths are absolute, and UNIX / Linux style
+
+# Once the encoding is set, read in each file. The file has a peculiar format, but is otherwise a character delimited
+# file with character wrapped values. These can be proxied  by specifying the delimiter and the quote symbol to appear
+# to be plain vanilla CSV. Lines / records read in are returned by the system as COPY ####
+
+usda=# \copy food_des from '/home/projects/Postgres/USDA/sr28/FOOD_DES.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 8789
+usda=# \copy data_src from '/home/projects/Postgres/USDA/sr28/DATA_SRC.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 682
+usda=# \copy datsrcln from '/home/projects/Postgres/USDA/sr28/DATSRCLN.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 244496
+usda=# \copy deriv_cd from '/home/projects/Postgres/USDA/sr28/DERIV_CD.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 55
+usda=# \copy fd_group from '/home/projects/Postgres/USDA/sr28/FD_GROUP.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 25
+usda=# \copy footnote from '/home/projects/Postgres/USDA/sr28/FOOTNOTE.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 552
+usda=# \copy nut_data from '/home/projects/Postgres/USDA/sr28/NUT_DATA.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 679045
+usda=# \copy nutr_def from '/home/projects/Postgres/USDA/sr28/NUTR_DEF.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 150
+usda=# \copy src_cd from '/home/projects/Postgres/USDA/sr28/SRC_CD.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 10
+usda=# \copy weight from '/home/projects/Postgres/USDA/sr28/WEIGHT.txt' (FORMAT CSV, DELIMITER '^', QUOTE '~');
+COPY 15438
