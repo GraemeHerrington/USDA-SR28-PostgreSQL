@@ -12,6 +12,6 @@ The platform addressed here is PostgreSQL on Linux. You may learn something by s
 
 Using the database requires some care. 100 grams of a food, is not necessarily all food. I suspect many of the commercial offerings of this backend don't get everything right:
 
- *Is a skin part of the data on an orange say, or banana. Or is it waste. Ok. Then how about on an apple, a grape? What about egg shell? It is considered part of the weight of an egg but discarded as waste.
+    Is a skin part of the data on an orange say, or banana. Or is it waste. Ok. Then how about on an apple, a grape? What about egg shell? It is considered part of the weight of an egg but discarded as waste.
 
-<t>Similarly with broccoli, the stalk is considered waste - but then there is a separate category for broccoli stalk. If you use all of the broccoli, you will have to combine data from 2 places.</t>
+    Similarly with broccoli, the stalk is considered waste - but then there is a separate category for broccoli stalk. If you use all of the broccoli, you will have to combine data from 2 places.
