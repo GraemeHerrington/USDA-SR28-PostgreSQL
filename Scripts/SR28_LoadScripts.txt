@@ -1,3 +1,6 @@
+# SR28_LoadScripts.txt
+# not meant to be run as a script, as it contains return values.
+# G Herrington May 2019.
 # The load scripts are the individual commands used to load the flat-file data from SR28
 # from a psql command prompt, as database owner and in the usda database, first issue the encoding command
 

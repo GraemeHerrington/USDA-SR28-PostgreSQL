@@ -1,8 +1,15 @@
-The following views are basically just examples to show how to access the individual tables
+/**
+
+USDA_views.sql Graeme Herrington, May 2019.
+
+Examples to show how to access the individual tables
 The final view on Lysine gives an idea of how to track a specific nutrient.
 
+Run either as queries, or install as views against the completed database.
+**/
 
---List the food groups and available nutritional data.
+
+--Create a view to provide basic food stats by metric
 
 CREATE OR REPLACE VIEW vwfdgrpstats AS 
  SELECT g.fddrp_desc AS item_name, g.fddrp_desc AS food_group, 
